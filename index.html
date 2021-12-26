@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --nord0: #2e3440;
+            --nord1: #3b4252;
+            --nord2: #434c4e;
+            --nord3: #4c566a;
+            --nord4: #d8dee9;
+            --nord5: #e5eff4;
+            --nord6: #eceff4;
+            --nord7: #8fbcbb;
+            --nord8: #88c0d0;
+            --nord9: #81a1c1;
+            --nord10: #5e81ac;
+            --nord11: #bf616a;
+            --nord12: #d08770;
+            --nord13: #ebcb8b;
+            --nord14: #a3be8c;
+            --nord15: #b48ead;
+        }
+
+        .dark {
+            --bg-col: var(--nord0);
+            --bg-sec: var(--nord3);
+            --fg-col: var(--nord4);
+            --col-ac: var(--nord8);
+            --col-ac-sec: var(--nord13);
+        }
+
+        .light {
+            --bg-col: var(--nord4);
+            --bg-sec: var(--nord6);
+            --fg-col: var(--nord0);
+            --col-ac: var(--nord10);
+            --col-ac-sec: var(--nord11);
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--bg-col);
+            color: var(--fg-col);
+            padding: 10pt 10%;
+            text-align: center;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48pt;
+            font-weight: 900;
+            margin: 20pt 0 30pt;
+        }
+
+        #search {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        #search-bar-container {
+            height: 40px;
+            clip-path: inset(0 0 0 0 round 5px 5px 5px 5px);
+            flex: 1;
+            max-width: 720px;
+        }
+
+        #search-bar {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        #search-bar-input-field {
+            flex: 1;
+            padding: 0 10px;
+            border: 2px solid transparent;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            background-color: var(--bg-sec);
+            color: var(--fg-col);
+            font-size: 110%;
+        }
+
+        #search-bar-input-field:focus {
+            border: 2px solid var(--col-ac);
+            outline: none;
+        }
+
+        #search-button {
+            background-color: var(--col-ac-sec);
+            border: none;
+            width: 40px;
+            height: 40px;
+            transition: filter 0.5s;
+        }
+
+        #search-button:hover {
+            cursor: pointer;
+            filter: hue-rotate(60deg);
+        }
+
+        #links {
+            display: flex;
+            width: 100%;
+            height: 40%;
+            min-height: 200px;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #links-container {
+            max-width: 720px;
+            flex: 1;
+            display: flex;
+            column-gap: 10px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            height: 100%;
+        }
+
+        #social {
+            --col-head-bg: var(--nord11);
+            --col-head-fg: var(--bg-col);
+        }
+
+        #utilities {
+            --col-head-bg: var(--nord12);
+            --col-head-fg: var(--bg-col);
+        }
+
+        #dev-tools {
+            --col-head-bg: var(--nord15);
+            --col-head-fg: var(--bg-col);
+        }
+
+        #education {
+            --col-head-bg: var(--nord14);
+            --col-head-fg: var(--bg-col);
+        }
+
+        #entertainment {
+            --col-head-bg: var(--nord13);
+            --col-head-fg: var(--bg-col);
+        }
+
+        #design {
+            --col-head-bg: var(--nord7);
+            --col-head-fg: var(--bg-col);
+        }
+
+        .category {
+            background-color: var(--bg-sec);
+            transition: flex 1s;
+            clip-path: inset(0 round 5px);
+            display: inline-block;
+            flex: 1;
+        }
+
+        .category-heading {
+            margin: 0;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 800;
+            background-color: var(--col-head-bg);
+            color: var(--col-head-fg);
+        }
+
+        .category ul {
+            list-style: inside;
+            margin: 10px;
+            padding: 0;
+        }
+
+        .category ul li {
+            margin: 5px 0;
+        }
+
+        .category ul li a {
+            color: var(--fg-col);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .category ul li a:visited {
+            color: var(--fg-col);
+        }
+    </style>
+    <title>Startpage</title>
+</head>
+
+<body class="dark">
+    <header>
+        <h1>Startpage</h1>
+    </header>
+    <section id="search">
+        <div id="search-bar-container">
+            <div id="search-bar">
+                <input type="text" name="search-text" id="search-bar-input-field"
+                    placeholder="Enter URL or search with DuckDuckGo...">
+                <button id="search-button">Go</button>
+            </div>
+        </div>
+    </section>
+    <section id="links">
+        <div id="links-container">
+            <div class="column">
+                <div class="category" id="social">
+                    <h2 class="category-heading"">Social</h2>
+                    <ul>
+                        <li><a href="https://web.whatsapp.com">Whatsapp</a></li>
+                        <li><a href="https://www.reddit.com">Reddit</a></li>
+                        <li><a href="https://mail.google.com">Gmail</a></li>
+                        <li><a href="https://protonmail.com">Protonmail</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div class="category" id="dev-tools">
+                    <h2 class="category-heading"">Dev Tools</h2>
+                    <ul>
+                        <li><a href="https://www.github.com/asifZaman0362">Github</a></li>
+                        <li><a href="https://www.gitlab.com">Gitlab</a></li>
+                    </ul>
+                </div>
+                <div class="category" id="entertainment">
+                    <h2 class="category-heading"">Entertainment</h2>
+                    <ul>
+                        <li><a href="https://web.primevideo.com">Prime Video</a></li>
+                        <li><a href="https://www.open.spotify.com">Spotify</a></li>
+                        <li><a href="https://music.amazon.in">Prime Music</a></li>
+                        <li><a href="https://youtube.com">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div class="category" id="utilities">
+                    <h2 class="category-heading"">Cloud Services</h2>
+                    <ul>
+                        <li><a href="https://drive.google.com">Google Drive</a></li>
+                        <li><a href="https://mega.co.nz">Mega</a></li>
+                        <li><a href="https://docs.google.com">Google Docs</a></li>
+                    </ul>
+                </div>
+                <div class="category" id="design">
+                    <h2 class="category-heading"">Design</h2>
+                    <ul>
+                        <li><a href="https://figma.com">Figma</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div class="category" id="education">
+                    <h2 class="category-heading"">Education</h2>
+                    <ul>
+                        <li><a href="https://wikipedia.com">Wikipedia</a></li>
+                        <li><a href="https://cppreference.com">CPP Reference</a></li>
+                        <li><a href="https://cplusplus.com">CPlusPlus</a></li>
+                        <li><a href="https://classroom.google.com">Classroom</a></li>
+                        <li><a href="https://wiki.archlinux.org">Archwiki</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
