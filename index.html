@@ -7,38 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
-            --nord0: #2e3440;
-            --nord1: #3b4252;
-            --nord2: #434c4e;
-            --nord3: #4c566a;
-            --nord4: #d8dee9;
-            --nord5: #e5eff4;
-            --nord6: #eceff4;
-            --nord7: #8fbcbb;
-            --nord8: #88c0d0;
-            --nord9: #81a1c1;
-            --nord10: #5e81ac;
-            --nord11: #bf616a;
-            --nord12: #d08770;
-            --nord13: #ebcb8b;
-            --nord14: #a3be8c;
-            --nord15: #b48ead;
+            --color0: #282828;
+            --color1: #fb4934;
+            --color2: #b8bb26;
+            --color3: #fabd2f;
+            --color4: #83a598;
+            --color5: #d3869b;
+            --color6: #8ec07c;
+            --color7: #ebdbb2;
+            --color8: rgb(248, 248, 242);
+            --color9: rgb(85, 85, 85);
+            --color10: #83a59855;
         }
 
         .dark {
-            --bg-col: var(--nord0);
-            --bg-sec: var(--nord3);
-            --fg-col: var(--nord4);
-            --col-ac: var(--nord8);
-            --col-ac-sec: var(--nord13);
+            --bg-col: var(--color0);
+            --bg-sec: #444444;
+            --fg-col: var(--color8);
+            --col-ac: var(--color3);
+            --col-ac-sec: var(--color4);
+            --col-ac-hover: var(--color10);
         }
 
         .light {
-            --bg-col: var(--nord4);
-            --bg-sec: var(--nord6);
-            --fg-col: var(--nord0);
-            --col-ac: var(--nord10);
-            --col-ac-sec: var(--nord11);
+            --bg-col: var(--color8);
+            --bg-sec: #d1d1d1;
+            --fg-col: var(--color0);
+            --col-ac: var(--color3);
+            --col-ac-sec: var(--color5);
         }
 
         body,
@@ -53,8 +49,55 @@
             font-family: "Inter", sans-serif;
             background-color: var(--bg-col);
             color: var(--fg-col);
-            padding: 10pt 10%;
             text-align: center;
+        }
+
+        .bg-lines-container {
+            position: absolute;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bg-lines-container hr {
+            display: block;
+            position: relative;
+            width: 100vw;
+            height: 10px;
+            border: none;
+            margin: 10px 0 0;
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        #line1 {
+            background-color: var(--color1);
+            width: 100%;
+            animation: slide 1s ;
+        }
+
+        #line2 {
+            background-color: var(--color3);
+            width: 100%;
+            animation: slide 1.4s;
+        }
+        
+        #line3 {
+            background-color: var(--color4);
+            width: 100%;
+            animation: slide 1.8s;
+        }
+
+        @keyframes slide {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
         }
 
         header {
@@ -64,7 +107,7 @@
         h1 {
             font-size: 48pt;
             font-weight: 900;
-            margin: 20pt 0 30pt;
+            margin: 40pt 0 30pt;
         }
 
         #search {
@@ -90,7 +133,7 @@
         #search-bar-input-field {
             flex: 1;
             padding: 0 10px;
-            border: 2px solid transparent;
+            border: 3px solid var(--bg-sec);
             border-radius: 5px 0 0 5px;
             outline: none;
             background-color: var(--bg-sec);
@@ -99,7 +142,8 @@
         }
 
         #search-bar-input-field:focus {
-            border: 2px solid var(--col-ac);
+            border: 3px solid var(--col-ac-hover);
+            border-right: none;
             outline: none;
         }
 
@@ -109,6 +153,7 @@
             width: 40px;
             height: 40px;
             transition: filter 0.5s;
+            font-weight: bolder;
         }
 
         #search-button:hover {
@@ -134,6 +179,8 @@
             flex-wrap: wrap;
             align-items: flex-start;
             text-align: left;
+            padding: 0 10px;
+            background-color: var(--bg-col);
         }
 
         .column {
@@ -145,32 +192,32 @@
         }
 
         #social {
-            --col-head-bg: var(--nord11);
+            --col-head-bg: var(--color1);
             --col-head-fg: var(--bg-col);
         }
 
         #utilities {
-            --col-head-bg: var(--nord12);
+            --col-head-bg: var(--color2);
             --col-head-fg: var(--bg-col);
         }
 
         #dev-tools {
-            --col-head-bg: var(--nord15);
+            --col-head-bg: var(--color5);
             --col-head-fg: var(--bg-col);
         }
 
         #education {
-            --col-head-bg: var(--nord14);
+            --col-head-bg: var(--color4);
             --col-head-fg: var(--bg-col);
         }
 
         #entertainment {
-            --col-head-bg: var(--nord13);
+            --col-head-bg: var(--color3);
             --col-head-fg: var(--bg-col);
         }
 
         #design {
-            --col-head-bg: var(--nord7);
+            --col-head-bg: var(--color7);
             --col-head-fg: var(--bg-col);
         }
 
@@ -215,18 +262,23 @@
             color: var(--fg-col);
         }
     </style>
+    <script src="script.js"></script>
     <title>Startpage</title>
 </head>
 
 <body class="dark">
+    <div class="bg-lines-container">
+        <hr id="line1">
+        <hr id="line2">
+        <hr id="line3">
+    </div>
     <header>
         <h1>Startpage</h1>
     </header>
     <section id="search">
         <div id="search-bar-container">
             <div id="search-bar">
-                <input type="text" name="search-text" id="search-bar-input-field"
-                    placeholder="Enter URL or search with DuckDuckGo...">
+                <input type="text" name="search-text" id="search-bar-input-field" placeholder="Enter URL or search with DuckDuckGo..." autofocus>
                 <button id="search-button">Go</button>
             </div>
         </div>
@@ -256,7 +308,7 @@
                     <h2 class="category-heading"">Entertainment</h2>
                     <ul>
                         <li><a href="https://web.primevideo.com">Prime Video</a></li>
-                        <li><a href="https://www.open.spotify.com">Spotify</a></li>
+                        <li><a href="https://open.spotify.com">Spotify</a></li>
                         <li><a href="https://music.amazon.in">Prime Music</a></li>
                         <li><a href="https://youtube.com">Youtube</a></li>
                     </ul>

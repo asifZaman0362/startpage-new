@@ -1,5 +1,5 @@
 function process() {
-    var searchText = document.getElementById('search_field').value;
+    var searchText = document.getElementById('search-bar-input-field').value;
     if (validateUrl(searchText)) {
         var url = !(searchText.includes('https://') || searchText.includes('ftp://') || searchText.includes('file://') || searchText.includes('http://')) ? 'https://' + searchText : searchText;
         window.location.replace(url);
@@ -16,7 +16,7 @@ function validateUrl(url) {
 
 window.onload = function() {
     console.log('hello!');
-    document.getElementById('search_field').addEventListener('keydown', function(event) {
+    document.getElementById('search-bar-input-field').addEventListener('keydown', function(event) {
         if (event.keyCode === 13) process();
     });
 }
