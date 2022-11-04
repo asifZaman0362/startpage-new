@@ -6,23 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @import url('https://unpkg.com/@catppuccin/palette@0.1.4/css/catppuccin.css');
         :root {
-            --color0: #282828;
-            --color1: #cc241d;
-            --color2: #98971a;
-            --color3: #d79921;
-            --color4: #458588;
-            --color5: #b16286;
-            --color6: #689d6a;
-            --color7: #a89984;
-            --color8: #fbfbfb;
+            --color0: var(--ctp-mocha-crust);
+            --color1: var(--ctp-mocha-flamingo);
+            --color2: var(--ctp-mocha-peach);
+            --color3: var(--ctp-mocha-pink);
+            --color4: var(--ctp-mocha-overlay);
+            --color5: var(--ctp-mocha-teal);
+            --color6: var(--ctp-mocha-sky);
+            --color7: var(--ctp-mocha-yellow);
+            --color8: var(--ctp-mocha-text);
             --color9: #d3869b;
             --color10: #83a59855;
         }
 
         .dark {
             --bg-col: var(--color0);
-            --bg-sec: #444444;
+            --bg-sec: var(--color4);
             --fg-col: var(--color8);
             --col-ac: var(--color3);
             --col-ac-sec: var(--color4);
